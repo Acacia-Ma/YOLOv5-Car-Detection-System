@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="4" fill="#0d6efd"/>
+  <path d="M6 10h20v12H6z" fill="white" stroke="#0d6efd" stroke-width="1"/>
+  <text x="16" y="19" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle" fill="#0d6efd">车牌</text>
+</svg>
