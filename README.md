@@ -38,32 +38,33 @@
 - **Element Plus**：UI组件库
 - **现代化设计**：响应式布局和美观界面
 
-##  项目结构
+## 📁 项目结构
 
-`
+```
 YOLOv5-Car-Detection-System/
- backend/                 # 后端服务
-    app.py              # Flask应用主文件
-    onnx_infer.py       # ONNX模型推理
-    requirements.txt    # Python依赖
-    model/              # 模型文件
-       plate_detect.onnx
-       plate_rec_color.onnx
-    static/             # 静态文件
-    fonts/              # 字体文件
-    users.db            # 用户数据库
- frontend/               # 前端应用
-    src/
-       components/     # Vue组件
-          AiChat.vue  # AI对话组件
-          AiConfig.vue # AI配置组件
-       views/          # 页面视图
-       router/         # 路由配置
-       main.js         # 应用入口
-    package.json        # 前端依赖
-    vue.config.js       # Vue配置
- README.md               # 项目说明
-`
+├── backend/                 # 后端服务
+│   ├── app.py              # Flask应用主文件
+│   ├── onnx_infer.py       # ONNX模型推理
+│   ├── requirements.txt    # Python依赖
+│   ├── model/              # 模型文件
+│   │   ├── plate_detect.onnx
+│   │   └── plate_rec_color.onnx
+│   ├── static/             # 静态文件
+│   ├── fonts/              # 字体文件
+│   │   └── platech.ttf
+│   └── users.db            # 用户数据库
+├── frontend/               # 前端应用
+│   ├── src/
+│   │   ├── components/     # Vue组件
+│   │   │   ├── AiChat.vue  # AI对话组件
+│   │   │   └── AiConfig.vue # AI配置组件
+│   │   ├── views/          # 页面视图
+│   │   ├── router/         # 路由配置
+│   │   └── main.js         # 应用入口
+│   ├── package.json        # 前端依赖
+│   └── vue.config.js       # Vue配置
+└── README.md               # 项目说明
+```
 
 ##  快速开始
 
@@ -75,12 +76,12 @@ YOLOv5-Car-Detection-System/
 ### 后端安装
 
 1. 进入后端目录
-`ash
+`bash
 cd backend
 `
 
 2. 创建虚拟环境（推荐）
-`ash
+`bash
 python -m venv venv
 # Windows
 venv\Scripts\activate
@@ -89,12 +90,12 @@ source venv/bin/activate
 `
 
 3. 安装依赖
-`ash
+`bash
 pip install -r requirements.txt
 `
 
 4. 启动后端服务
-`ash
+`bash
 python app.py
 `
 
@@ -103,17 +104,17 @@ python app.py
 ### 前端安装
 
 1. 进入前端目录
-`ash
+`bash
 cd frontend
 `
 
 2. 安装依赖
-`ash
+`bash
 npm install
 `
 
 3. 启动开发服务器
-`ash
+`bash
 npm run serve
 `
 
@@ -155,13 +156,13 @@ npm run serve
 ##  配置说明
 
 ### 后端配置
-- 模型文件路径：ackend/model/
-- 静态文件路径：ackend/static/
-- 数据库文件：ackend/users.db
+- 模型文件路径：`backend/model/`
+- 静态文件路径：`backend/static/`
+- 数据库文件：`backend/users.db`
 
 ### 前端配置
-- API基础URL：在 rontend/src/main.js 中配置
-- 路由配置：rontend/src/router/index.js
+- API基础URL：在 `frontend/src/main.js` 中配置
+- 路由配置：`frontend/src/router/index.js`
 
 ##  AI功能详解
 
