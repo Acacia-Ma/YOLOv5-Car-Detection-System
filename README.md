@@ -14,8 +14,9 @@
 
 ### 车牌检测功能
 <div align="center">
-  <img src="rendering/image-detection.jpg" alt="图片检测" width="45%" style="margin: 10px;">
-  <img src="rendering/video-detection.jpg" alt="视频检测" width="45%" style="margin: 10px;">
+  <img src="rendering/image-detection.jpg" alt="图片检测" width="30%" style="margin: 10px;">
+  <img src="rendering/video-detection.jpg" alt="视频检测" width="30%" style="margin: 10px;">
+  <img src="rendering/camera-detection.jpg" alt="摄像头检测" width="30%" style="margin: 10px;">
 </div>
 
 ### 智能功能

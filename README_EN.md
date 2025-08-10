@@ -14,8 +14,9 @@ A smart car plate detection and recognition system based on YOLOv5, integrated w
 
 ### License Plate Detection
 <div align="center">
-  <img src="rendering/image-detection.jpg" alt="Image Detection" width="45%" style="margin: 10px;">
-  <img src="rendering/video-detection.jpg" alt="Video Detection" width="45%" style="margin: 10px;">
+  <img src="rendering/image-detection.jpg" alt="Image Detection" width="30%" style="margin: 10px;">
+  <img src="rendering/video-detection.jpg" alt="Video Detection" width="30%" style="margin: 10px;">
+  <img src="rendering/camera-detection.jpg" alt="Camera Detection" width="30%" style="margin: 10px;">
 </div>
 
 ### Smart Features
