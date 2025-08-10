@@ -64,11 +64,9 @@ Thumbs.db
 .env.test.local
 .env.production.local
 
-# Uploads and results (commented out to include all static files)
-# backend/static/result/*
-# !backend/static/result/.gitkeep
-# backend/static/uploaded_*
-# backend/static/result_*
+# Uploads and results - ignore all files in backend/static/
+backend/static/*
+!backend/static/.gitkeep
 
 # Model files (optional, uncomment if models are large)
 # Note: ONNX models are now included in the repository
@@ -78,3 +76,4 @@ Thumbs.db
 
 # CSV files
 *.csv
+

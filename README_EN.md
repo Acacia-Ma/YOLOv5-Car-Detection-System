@@ -1,6 +1,28 @@
-# YOLOv5 Car Plate Detection System
+# YOLOv5 Car Plate Detection and Recognition System
+
+[中文版本](README.md)
 
 A smart car plate detection and recognition system based on YOLOv5, integrated with a modern Web interface and AI conversation features.
+
+## 📸 Project Screenshots
+
+### User Authentication
+<div align="center">
+  <img src="rendering/login.jpg" alt="Login Page" width="45%" style="margin: 10px;">
+  <img src="rendering/register.jpg" alt="Register Page" width="45%" style="margin: 10px;">
+</div>
+
+### License Plate Detection
+<div align="center">
+  <img src="rendering/image-detection.jpg" alt="Image Detection" width="45%" style="margin: 10px;">
+  <img src="rendering/video-detection.jpg" alt="Video Detection" width="45%" style="margin: 10px;">
+</div>
+
+### Smart Features
+<div align="center">
+  <img src="rendering/ai-assistant.jpg" alt="AI Assistant" width="45%" style="margin: 10px;">
+  <img src="rendering/history.jpg" alt="History Records" width="45%" style="margin: 10px;">
+</div>
 
 ## Features
 
@@ -63,6 +85,23 @@ YOLOv5-Car-Detection-System/
 │   │   └── main.js         # Application entry point
 │   ├── package.json        # Frontend dependencies
 │   └── vue.config.js       # Vue configuration
+├── material/               # Test materials
+│   ├── imgs/               # Test images
+│   │   ├── 0.jpg           # License plate test image
+│   │   ├── 1.jpg           # License plate test image
+│   │   ├── 6.jpg           # License plate test image
+│   │   ├── double_yellow.jpg # Double yellow plate test
+│   │   ├── single_green.jpg  # Single green plate test
+│   │   ├── single_yellow.jpg # Single yellow plate test
+│   │   └── ...             # Other test images
+│   └── test.mp4            # Test video file
+├── rendering/              # Project screenshots
+│   ├── login.jpg           # Login page screenshot
+│   ├── register.jpg        # Register page screenshot
+│   ├── image-detection.jpg # Image detection screenshot
+│   ├── video-detection.jpg # Video detection screenshot
+│   ├── ai-assistant.jpg    # AI assistant screenshot
+│   └── history.jpg         # History records screenshot
 └── README.md               # Project README
 ```
 
@@ -149,6 +188,26 @@ The frontend application will start at http://localhost:8080
 4. **History Records**
    - View all recognition history.
    - Manage and export data.
+
+### Test Materials Usage
+
+The project provides rich test materials for you to quickly experience the system features:
+
+**Test Images** (located in `material/imgs/` directory):
+- `0.jpg`, `1.jpg`, `6.jpg` - Basic license plate test images
+- `double_yellow.jpg` - Double yellow plate test (large vehicles)
+- `single_green.jpg` - Single green plate test (new energy vehicles)
+- `single_yellow.jpg` - Single yellow plate test (regular vehicles)
+- `hongkang1.jpg` - Hong Kong/Macau license plate test
+- `moto.png` - Motorcycle plate test
+
+**Test Video**:
+- `material/test.mp4` - License plate detection video test file
+
+**Usage Instructions**:
+1. After starting the system, select any image from `material/imgs/` on the image detection page for testing
+2. Upload `material/test.mp4` on the video detection page for video detection testing
+3. Observe the recognition effects and accuracy of different types of license plates
 
 ### AI Feature Configuration
 

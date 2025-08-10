@@ -1,8 +1,28 @@
-﻿# YOLOv5 车牌检测识别系统
+# YOLOv5 车牌检测识别系统
 
 [English Version](README_EN.md)
 
 一个基于YOLOv5的智能车牌检测识别系统，集成了现代化的Web界面和AI对话功能。
+
+## 📸 项目展示
+
+### 用户认证
+<div align="center">
+  <img src="rendering/login.jpg" alt="登录页面" width="45%" style="margin: 10px;">
+  <img src="rendering/register.jpg" alt="注册页面" width="45%" style="margin: 10px;">
+</div>
+
+### 车牌检测功能
+<div align="center">
+  <img src="rendering/image-detection.jpg" alt="图片检测" width="45%" style="margin: 10px;">
+  <img src="rendering/video-detection.jpg" alt="视频检测" width="45%" style="margin: 10px;">
+</div>
+
+### 智能功能
+<div align="center">
+  <img src="rendering/ai-assistant.jpg" alt="AI助手" width="45%" style="margin: 10px;">
+  <img src="rendering/history.jpg" alt="历史记录" width="45%" style="margin: 10px;">
+</div>
 
 ##  功能特性
 
@@ -65,6 +85,23 @@ YOLOv5-Car-Detection-System/
 │   │   └── main.js         # 应用入口
 │   ├── package.json        # 前端依赖
 │   └── vue.config.js       # Vue配置
+├── material/               # 测试素材
+│   ├── imgs/               # 测试图片
+│   │   ├── 0.jpg           # 车牌测试图片
+│   │   ├── 1.jpg           # 车牌测试图片
+│   │   ├── 6.jpg           # 车牌测试图片
+│   │   ├── double_yellow.jpg # 双黄牌测试
+│   │   ├── single_green.jpg  # 单绿牌测试
+│   │   ├── single_yellow.jpg # 单黄牌测试
+│   │   └── ...             # 其他测试图片
+│   └── test.mp4            # 测试视频文件
+├── rendering/              # 项目效果图
+│   ├── login.jpg           # 登录页面截图
+│   ├── register.jpg        # 注册页面截图
+│   ├── image-detection.jpg # 图片检测截图
+│   ├── video-detection.jpg # 视频检测截图
+│   ├── ai-assistant.jpg    # AI助手截图
+│   └── history.jpg         # 历史记录截图
 └── README.md               # 项目说明
 ```
 
@@ -151,6 +188,26 @@ npm run serve
 4. **历史记录**
    - 查看所有识别历史
    - 管理和导出数据
+
+### 测试素材使用
+
+项目提供了丰富的测试素材供您快速体验系统功能：
+
+**测试图片**（位于 `material/imgs/` 目录）：
+- `0.jpg`, `1.jpg`, `6.jpg` - 基础车牌测试图片
+- `double_yellow.jpg` - 双黄牌测试（大型车辆）
+- `single_green.jpg` - 单绿牌测试（新能源车辆）
+- `single_yellow.jpg` - 单黄牌测试（普通车辆）
+- `hongkang1.jpg` - 港澳车牌测试
+- `moto.png` - 摩托车牌测试
+
+**测试视频**：
+- `material/test.mp4` - 车牌检测视频测试文件
+
+**使用方法**：
+1. 启动系统后，在图片检测页面选择 `material/imgs/` 中的任意图片进行测试
+2. 在视频检测页面上传 `material/test.mp4` 进行视频检测测试
+3. 观察不同类型车牌的识别效果和准确率
 
 ### AI功能配置
 
