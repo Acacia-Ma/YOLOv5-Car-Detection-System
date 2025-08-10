@@ -1,5 +1,7 @@
 ﻿# YOLOv5 车牌检测识别系统
 
+[English Version](README_EN.md)
+
 一个基于YOLOv5的智能车牌检测识别系统，集成了现代化的Web界面和AI对话功能。
 
 ##  功能特性
