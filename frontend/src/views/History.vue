@@ -242,7 +242,7 @@ const confirmDelete = async () => {
   isDeleting.value = true
   
   try {
-    const response = await axios.post('/delete_history_record', {
+    const response = await axios.post('delete_history_record', {
       idx: deleteIndex.value
     })
     
@@ -346,7 +346,7 @@ const confirmBatchDelete = async () => {
       return records.value.findIndex(r => r === record)
     }).filter(index => index !== -1)
     
-    const response = await axios.post('/batch_delete_history', {
+    const response = await axios.post('batch_delete_history', {
       indices: indices
     })
     

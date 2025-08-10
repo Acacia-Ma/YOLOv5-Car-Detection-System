@@ -374,7 +374,7 @@ const detectImage = async () => {
     const formData = new FormData()
     formData.append('file', imageFile.value)
     
-    const response = await axios.post('/detect_image', formData, {
+    const response = await axios.post('detect_image', formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -449,7 +449,7 @@ const uploadVideo = async () => {
     const formData = new FormData()
     formData.append('video', videoFile.value)
     
-    const response = await axios.post('/upload_video', formData, {
+    const response = await axios.post('upload_video', formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -479,7 +479,7 @@ const detectVideo = async () => {
   ElMessage.info('视频检测中，请稍候...')
   
   try {
-    const response = await axios.post('/detect_video')
+    const response = await axios.post('detect_video')
     
     if (response.data.status === 'success') {
       videoResultUrl.value = `/api/${response.data.output_video}?t=${new Date().getTime()}`
@@ -507,7 +507,7 @@ const stopCamera = () => {
   cameraActive.value = false
   cameraFeedUrl.value = ''
   // 调用后端停止摄像头API
-  axios.post('/stop_camera').catch(error => {
+  axios.post('stop_camera').catch(error => {
     console.error('停止摄像头错误:', error)
   })
   ElMessage.info('摄像头已关闭')

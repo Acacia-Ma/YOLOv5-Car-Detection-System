@@ -342,7 +342,7 @@ export default {
     // 获取统计信息
     const getStatistics = async () => {
       try {
-        const response = await axios.post('/admin/statistics', {
+        const response = await axios.post('admin/statistics', {
           admin_username: currentUser.value.username
         })
         if (response.data.status === 'success') {
@@ -357,7 +357,7 @@ export default {
     const getUsers = async () => {
       usersLoading.value = true
       try {
-        const response = await axios.post('/admin/users', {
+        const response = await axios.post('admin/users', {
           admin_username: currentUser.value.username
         })
         if (response.data.status === 'success') {
@@ -374,7 +374,7 @@ export default {
     const getHistory = async () => {
       historyLoading.value = true
       try {
-        const response = await axios.post('/admin/all_history', {
+        const response = await axios.post('admin/all_history', {
           admin_username: currentUser.value.username
         })
         if (response.data.status === 'success') {
@@ -393,7 +393,7 @@ export default {
         const action = user.is_active ? '禁用' : '启用'
         await ElMessageBox.confirm(`确定要${action}用户 ${user.username} 吗？`, '确认操作')
         
-        const response = await axios.post('/admin/toggle_user', {
+        const response = await axios.post('admin/toggle_user', {
           admin_username: currentUser.value.username,
           user_id: user.id
         })
@@ -419,7 +419,7 @@ export default {
           type: 'warning'
         })
         
-        const response = await axios.post('/admin/delete_user', {
+        const response = await axios.post('admin/delete_user', {
           admin_username: currentUser.value.username,
           user_id: user.id
         })
@@ -446,7 +446,7 @@ export default {
           type: 'warning'
         })
         
-        const response = await axios.post('/admin/clear_history', {
+        const response = await axios.post('admin/clear_history', {
           admin_username: currentUser.value.username,
           clear_type: type
         })

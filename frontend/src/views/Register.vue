@@ -162,7 +162,7 @@ const register = async () => {
   isLoading.value = true
   
   try {
-    const response = await axios.post('/register', {
+    const response = await axios.post('register', {
       username: registerData.value.username,
       password: registerData.value.password
     })

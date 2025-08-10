@@ -25,10 +25,12 @@ def get_second_str():
 
 csv_name = get_time_str()+".csv"
 
-with open(csv_name, mode='a', newline='') as example_file:
-    fieldnames = ['图片名','车牌号','车牌颜色','置信度','识别时间']
-    writer = csv.DictWriter(example_file, fieldnames=fieldnames, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    writer.writerow({"图片名":"图片名","车牌号":"车牌号","车牌颜色":"车牌颜色","置信度":"置信度","识别时间":"识别时间"})
+# 只有当CSV文件不存在时才创建并写入表头
+if not os.path.exists(csv_name):
+    with open(csv_name, mode='w', newline='', encoding='utf-8') as example_file:
+        fieldnames = ['图片名','车牌号','车牌颜色','置信度','识别时间']
+        writer = csv.DictWriter(example_file, fieldnames=fieldnames, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        writer.writeheader()
 
 app = Flask(__name__, static_folder='static')
 # 启用CORS，允许前端跨域请求
@@ -143,7 +145,15 @@ def detect_image():
         return jsonify({"status": "error", "message": "请选择图片再提交"}), 400
     
     csv_name = get_time_str()+".csv"
-    with open(csv_name, mode='a', newline='') as example_file:
+    
+    # 确保CSV文件存在且有表头
+    if not os.path.exists(csv_name):
+        with open(csv_name, mode='w', newline='', encoding='utf-8') as example_file:
+            fieldnames = ['图片名','车牌号','车牌颜色','置信度','识别时间']
+            writer = csv.DictWriter(example_file, fieldnames=fieldnames, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            writer.writeheader()
+    
+    with open(csv_name, mode='a', newline='', encoding='utf-8') as example_file:
         fieldnames = ['图片名','车牌号','车牌颜色','置信度','识别时间']
         writer = csv.DictWriter(example_file, fieldnames=fieldnames, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         
@@ -186,7 +196,7 @@ def get_history():
     csv_name = get_time_str()+".csv"
     records = []
     try:
-        with open(csv_name, mode='r', newline='') as file:
+        with open(csv_name, mode='r', newline='', encoding='utf-8') as file:
             reader = csv.DictReader(file)
             for row in reader:
                 # 转换置信度为数字格式
@@ -213,7 +223,7 @@ def delete_history_record():
     csv_name = get_time_str()+".csv"
     try:
         records = []
-        with open(csv_name, mode='r', newline='') as file:
+        with open(csv_name, mode='r', newline='', encoding='utf-8') as file:
             reader = csv.DictReader(file)
             records = list(reader)
         
@@ -222,7 +232,7 @@ def delete_history_record():
         
         del records[idx]
         
-        with open(csv_name, mode='w', newline='') as file:
+        with open(csv_name, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.DictWriter(file, fieldnames=['图片名','车牌号','车牌颜色','置信度','识别时间'])
             writer.writeheader()
             writer.writerows(records)
@@ -242,7 +252,7 @@ def batch_delete_history():
     csv_name = get_time_str()+".csv"
     try:
         records = []
-        with open(csv_name, mode='r', newline='') as file:
+        with open(csv_name, mode='r', newline='', encoding='utf-8') as file:
             reader = csv.DictReader(file)
             records = list(reader)
         
@@ -259,7 +269,7 @@ def batch_delete_history():
             del records[idx]
         
         # 重新写入CSV文件
-        with open(csv_name, mode='w', newline='') as file:
+        with open(csv_name, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.DictWriter(file, fieldnames=['图片名','车牌号','车牌颜色','置信度','识别时间'])
             writer.writeheader()
             writer.writerows(records)
@@ -556,7 +566,7 @@ def get_statistics():
         successful_detections = 0
         
         try:
-            with open(csv_name, mode='r', newline='') as file:
+            with open(csv_name, mode='r', newline='', encoding='utf-8') as file:
                 reader = csv.DictReader(file)
                 records = list(reader)
                 total_detections = len(records)
@@ -570,7 +580,7 @@ def get_statistics():
         all_time_detections = 0
         for csv_file in all_csv_files:
             try:
-                with open(csv_file, mode='r', newline='') as file:
+                with open(csv_file, mode='r', newline='', encoding='utf-8') as file:
                     reader = csv.DictReader(file)
                     all_time_detections += len(list(reader))
             except:
@@ -605,7 +615,7 @@ def get_all_history():
         
         for csv_file in csv_files:
             try:
-                with open(csv_file, mode='r', newline='') as file:
+                with open(csv_file, mode='r', newline='', encoding='utf-8') as file:
                     reader = csv.DictReader(file)
                     for row in reader:
                         row['date'] = csv_file.replace('.csv', '')
@@ -632,7 +642,7 @@ def clear_history():
             csv_name = get_time_str() + ".csv"
             if os.path.exists(csv_name):
                 # 重新创建文件，只保留表头
-                with open(csv_name, mode='w', newline='') as file:
+                with open(csv_name, mode='w', newline='', encoding='utf-8') as file:
                     fieldnames = ['图片名','车牌号','车牌颜色','置信度','识别时间']
                     writer = csv.DictWriter(file, fieldnames=fieldnames)
                     writer.writeheader()
@@ -647,7 +657,7 @@ def clear_history():
                     continue
             # 重新创建今日文件
             csv_name = get_time_str() + ".csv"
-            with open(csv_name, mode='w', newline='') as file:
+            with open(csv_name, mode='w', newline='', encoding='utf-8') as file:
                 fieldnames = ['图片名','车牌号','车牌颜色','置信度','识别时间']
                 writer = csv.DictWriter(file, fieldnames=fieldnames)
                 writer.writeheader()
@@ -768,9 +778,28 @@ def generate_github_ai_response(message, image_file=None, github_token=None):
                 # 使用现有的检测函数
                 _, plate_no, plate_color, confidence = detect_frame(img_cv)
                 
+                # 保存识别结果到历史记录
+                if plate_no or confidence:  # 只要有识别结果就保存
+                    csv_name = get_time_str() + ".csv"
+                    with open(csv_name, mode='a', newline='', encoding='utf-8') as example_file:
+                        fieldnames = ['图片名','车牌号','车牌颜色','置信度','识别时间']
+                        writer = csv.DictWriter(example_file, fieldnames=fieldnames, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                        
+                        # 生成文件名（AI助手识别）
+                        ai_filename = f"AI助手识别_{get_second_str().replace(':', '-').replace(' ', '_')}.jpg"
+                        confidence_str = str(round(confidence, 4)) if confidence else "0"
+                        
+                        writer.writerow({
+                            "图片名": ai_filename,
+                            "车牌号": plate_no if plate_no else "未识别",
+                            "车牌颜色": plate_color if plate_color else "未识别", 
+                            "置信度": confidence_str,
+                            "识别时间": get_second_str()
+                        })
+                
                 if plate_no:
                     confidence_percent = round(confidence * 100, 2) if confidence else 0
-                    image_analysis = f"车牌识别结果：车牌号码={plate_no}, 颜色={plate_color}, 置信度={confidence_percent}%"
+                    image_analysis = f"车牌识别结果：车牌号码={plate_no}, 颜色={plate_color}, 置信度={confidence_percent}%（已保存到历史记录）"
                 else:
                     image_analysis = "未能检测到车牌"
                 
@@ -861,6 +890,25 @@ def generate_local_ai_response(message, image_file=None):
             # 使用现有的检测函数
             _, plate_no, plate_color, confidence = detect_frame(img_cv)
             
+            # 保存识别结果到历史记录
+            if plate_no or confidence:  # 只要有识别结果就保存
+                csv_name = get_time_str() + ".csv"
+                with open(csv_name, mode='a', newline='', encoding='utf-8') as example_file:
+                    fieldnames = ['图片名','车牌号','车牌颜色','置信度','识别时间']
+                    writer = csv.DictWriter(example_file, fieldnames=fieldnames, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                    
+                    # 生成文件名（AI助手识别）
+                    ai_filename = f"AI助手识别_{get_second_str().replace(':', '-').replace(' ', '_')}.jpg"
+                    confidence_str = str(round(confidence, 4)) if confidence else "0"
+                    
+                    writer.writerow({
+                        "图片名": ai_filename,
+                        "车牌号": plate_no if plate_no else "未识别",
+                        "车牌颜色": plate_color if plate_color else "未识别", 
+                        "置信度": confidence_str,
+                        "识别时间": get_second_str()
+                    })
+            
             if plate_no:
                 confidence_percent = round(confidence * 100, 2) if confidence else 0
                 image_analysis = f"\n\n📸 **图片分析结果：**\n- 车牌号码：**{plate_no}**\n- 车牌颜色：**{plate_color}**\n- 识别置信度：**{confidence_percent}%**\n"
@@ -873,6 +921,8 @@ def generate_local_ai_response(message, image_file=None):
                     image_analysis += "- 识别质量：**一般** ⚠️\n"
                 else:
                     image_analysis += "- 识别质量：**较差** ❌\n"
+                    
+                image_analysis += "\n💾 **已自动保存到历史记录**\n"
             else:
                 image_analysis = "\n\n📸 **图片分析结果：**\n- 未能检测到车牌，可能原因：\n  - 图片中没有车牌\n  - 车牌被遮挡或模糊\n  - 图片质量较差\n  - 车牌角度过大\n"
         except Exception as e:

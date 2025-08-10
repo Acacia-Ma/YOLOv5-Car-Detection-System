@@ -4,6 +4,7 @@
     title="AI智能助手 - 车牌识别专家"
     width="800px"
     :before-close="handleClose"
+    :show-close="false"
     class="ai-chat-dialog"
   >
     <template #header="{ close, titleId, titleClass }">
