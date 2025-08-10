@@ -81,13 +81,21 @@ cd backend
 `
 
 2. 创建虚拟环境（推荐）
-`bash
+```bash
 python -m venv venv
-# Windows
-venv\Scripts\activate
-# Linux/Mac
+```
+
+**激活虚拟环境**
+
+**Windows**
+```powershell
+venc\Scripts\activate
+```
+
+**Linux/Mac**
+```bash
 source venv/bin/activate
-`
+```
 
 3. 安装依赖
 `bash
@@ -226,14 +234,20 @@ npm run serve
 4. 推送到分支 (git push origin feature/AmazingFeature)
 5. 开启 Pull Request
 
-##  更新日志
+## 更新日志
 
-### v1.0.0 (2024-08-10)
+### v1.0.0 (2025-08-9)
 - 初始版本发布
 - 车牌检测识别功能
 - Web界面和用户系统
 - AI对话功能集成
 - 智能降级机制
+
+### v1.0.1 (2025-08-10)
+- **修复**：统一前端API请求路径，解决部分功能404错误（涉及 `Admin.vue`, `Register.vue`, `Login.vue`, `Home.vue`）
+- **修复**：解决历史记录中AI助手识别结果中文乱码问题，统一CSV文件编码为UTF-8（涉及 `backend/app.py` 中所有CSV读写操作）
+- **修复**：解决历史记录获取时因CSV表头重复写入导致的500错误，优化CSV文件初始化和图片检测API中的表头写入逻辑
+- **优化**：更新 `README.md` 中虚拟环境创建和激活的说明格式，使其更清晰易读
 
 ##  许可证
 
