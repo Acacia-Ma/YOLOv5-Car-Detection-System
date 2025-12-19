@@ -4,6 +4,10 @@
 
 一个基于YOLOv5的智能车牌检测识别系统，集成了现代化的Web界面和AI对话功能。
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Acacia-Ma/YOLOv5-Car-Detection-System&type=date&legend=top-left)](https://www.star-history.com/#Acacia-Ma/YOLOv5-Car-Detection-System&type=date&legend=top-left)
+
 ## 📸 项目展示
 
 ### 用户认证
