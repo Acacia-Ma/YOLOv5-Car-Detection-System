@@ -4,6 +4,10 @@
 
 A smart car plate detection and recognition system based on YOLOv5, integrated with a modern Web interface and AI conversation features.
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Acacia-Ma/YOLOv5-Car-Detection-System&type=date&legend=top-left)](https://www.star-history.com/#Acacia-Ma/YOLOv5-Car-Detection-System&type=date&legend=top-left)
+
 ## 📸 Project Screenshots
 
 ### User Authentication
