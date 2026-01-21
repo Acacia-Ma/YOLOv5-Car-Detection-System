@@ -330,7 +330,7 @@ npm run serve
 
 - 提交 Issue
 - 发起 Pull Request
-- 邮件联系：[912811339@qq.com]
+- 邮件联系：[me@acacia-ma.com]
 
 ---
 
